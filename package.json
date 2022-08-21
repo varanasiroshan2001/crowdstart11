@@ -6,15 +6,25 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "@truffle/hdwallet-provider": "^2.0.13",
+    "firebase": "^9.9.2",
+    "fs-extra": "^10.1.0",
+    "ganache-cli": "^6.12.2",
+    "mocha": "^10.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux-firebase": "^3.1.1",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "redux-firestore": "^0.12.0",
+    "solc": "^0.8.16",
+    "web-vitals": "^2.1.4",
+    "web3": "^1.7.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "mocha",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
