@@ -10,9 +10,8 @@ import {
   updateDoc,
   deleteDoc,
 } from "firebase/firestore";
-import Signup from "./pages/Signup";
-import Login from "./components/Login.jsx";
-import ForgotPassword from "./components/ForgotPassword";
+import Signup from "./pages/SignUp/Signup";
+import ForgotPassword from "./pages/ForgotPass/Forgot";
 import Dashboard from "./components/Dashboard.jsx";
 
 import { AuthProvider } from "./contexts/authContext";
@@ -46,8 +45,7 @@ function App() {
             />
 
             <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/forgot-password" element = {<ForgotPassword/>}/>
+            <Route path="/forgot-password" element={<ForgotPassword />} />
           </Routes>
         </BrowserRouter>
       </div>

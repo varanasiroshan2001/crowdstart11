@@ -158,3 +158,13 @@ label {
 .signup_top.close {
   margin-left: 25vw;
 }
+
+.text_link {
+  text-decoration: none;
+  color: var(--primary-pink);
+  cursor: pointer;
+}
+
+.text_link p {
+  margin-top: 1rem;
+}
