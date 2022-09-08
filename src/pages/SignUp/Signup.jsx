@@ -56,6 +56,7 @@ const Signup = () => {
       await updateDoc(userRef, {
         id: userRes.id,
       });
+      navigate("/");
     } catch (error) {
       console.log("Failed to create account", error);
     }

@@ -38,7 +38,7 @@ const ForgotPassword = () => {
           />
 
           <button
-            type="submit"
+            // type="submit"
             onClick={(e) => {
               handleSubmit(e);
             }}
