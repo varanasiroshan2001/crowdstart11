@@ -1,0 +1,10 @@
+.requests_container {
+  margin-top: 10vh;
+}
+
+.requests_card_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

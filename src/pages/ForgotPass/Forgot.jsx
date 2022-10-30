@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/authContext";
-import { PrimaryButton } from "../../components/Button";
+import { PrimaryButton } from "../../components/Button/Button";
 import "./forgot.css";
 
 const ForgotPassword = () => {
@@ -9,7 +9,7 @@ const ForgotPassword = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const { resetPassword } = useAuth();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   //   console.log(value);
 

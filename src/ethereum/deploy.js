@@ -4,20 +4,24 @@ const compiledFactory = require("./build/CampaignFactory.json");
 
 const provider = new HDWalletProvider(
   "forum focus joy acid reveal make credit sweet benefit either recipe leader",
-  "https://rinkeby.infura.io/v3/65bc3181abe44d62aa36ed4fdb857397"
+  "https://goerli.infura.io/v3/65bc3181abe44d62aa36ed4fdb857397"
 );
 const web3 = new Web3(provider);
 
 const deploy = async () => {
-  const accounts = await web3.eth.getAccounts();
+  try {
+    const accounts = await web3.eth.getAccounts();
 
-  console.log("Attempting to deploy from account", accounts[0]);
+    console.log("Attempting to deploy from account", accounts[0]);
 
-  const result = await new web3.eth.Contract(compiledFactory.abi)
-    .deploy({ data: compiledFactory.evm.bytecode.object })
-    .send({ gas: "3000000", from: accounts[0] });
+    const result = await new web3.eth.Contract(compiledFactory.abi)
+      .deploy({ data: compiledFactory.evm.bytecode.object })
+      .send({ gas: "3000000", from: accounts[0] });
 
-  console.log("Contract deployed to", result.options.address);
-  provider.engine.stop();
+    console.log("Contract deployed to", result.options.address);
+    provider.engine.stop();
+  } catch (error) {
+    console.log(error);
+  }
 };
 deploy();

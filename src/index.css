@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap");
 
 body {
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -14,8 +15,8 @@ code {
 }
 
 :root {
-  --primary-blue: #265ee9;
-  --primary-pink: #ff2e63;
+  --primary-blue: #4b89dc;
+  --primary-pink: #d94555;
   --primary-green: #36bc9b;
 }
 
@@ -29,4 +30,14 @@ code {
 
 .logo_text {
   font-family: "Pacifico", cursive;
+  cursor: default;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.hidden {
+  display: none !important;
 }

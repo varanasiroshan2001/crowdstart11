@@ -1,0 +1,86 @@
+.input_form {
+  text-align: left;
+  width: 90%;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+.submit_project_container {
+  margin-top: 10vh;
+}
+
+.input_form h1 {
+  text-align: left;
+  margin-bottom: 1rem;
+  font-weight: normal;
+}
+
+.input_section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.input_section input {
+  width: 100%;
+  border: none;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid var(--primary-blue);
+  font-size: 1.5rem;
+  margin-top: 0.2rem;
+  padding-left: 0.2rem;
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+}
+
+.input_section textarea {
+  width: 100%;
+  border: none;
+  padding-bottom: 0.2rem;
+  border: 2px solid var(--primary-blue);
+  font-size: 1rem;
+  min-height: 100px;
+  margin-top: 0.2rem;
+  padding-left: 0.2rem;
+  border-radius: 5px;
+
+  background-color: rgb(240, 240, 240);
+}
+
+.input_section input:focus,
+.input_section textarea:focus {
+  outline: none;
+}
+
+.input_section label {
+  font-size: 1.2rem;
+}
+
+.project_images {
+  display: flex;
+  align-items: center;
+  margin-block: 1rem;
+}
+
+.project_images img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  margin-inline: 1rem;
+  border: 1px solid var(--primary-blue);
+}
+
+.submit_button_container {
+  text-align: right;
+}
+
+.add_image img {
+  opacity: 0.7;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.add_image img:hover {
+  opacity: 1;
+}

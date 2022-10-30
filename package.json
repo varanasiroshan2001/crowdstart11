@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/icons-material": "^5.10.6",
+    "@mui/material": "^5.10.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -13,12 +17,18 @@
     "lottie-react": "^2.3.1",
     "mocha": "^10.0.0",
     "react": "^18.2.0",
+    "react-alert": "^7.0.3",
+    "react-alert-template-basic": "^1.0.2",
+    "react-confirm-alert": "^3.0.6",
+    "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
     "react-lottie": "^1.2.3",
+    "react-modal": "^3.15.1",
     "react-redux": "^8.0.2",
     "react-redux-firebase": "^3.1.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-simple-image-slider": "^2.4.1",
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-firestore": "^0.12.0",
@@ -28,8 +38,8 @@
     "web3": "^1.7.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
     "test": "mocha",
     "eject": "react-scripts eject"
   },
@@ -50,5 +60,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "assert": "^2.0.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "process": "^0.11.10",
+    "react-app-rewired": "^2.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.0"
   }
 }

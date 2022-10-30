@@ -26,7 +26,6 @@ var input = {
 
 var output = JSON.parse(solc.compile(JSON.stringify(input)));
 
-
 fs.ensureDirSync(buildPath);
 
 for (let contract in output.contracts["Campaign.sol"]) {

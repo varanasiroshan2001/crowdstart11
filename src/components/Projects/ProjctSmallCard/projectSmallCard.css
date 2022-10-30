@@ -1,0 +1,64 @@
+.project_small_card {
+  width: 96%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.project_small_card_container {
+  display: flex;
+  width: 100%;
+  height: 15vh;
+  /* margin-bottom: 1rem; */
+}
+
+.project_small_card:hover {
+  transform: scale(1.02);
+}
+
+.project_img {
+  width: 100%;
+}
+
+.project_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.small_card_details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  padding: 1rem;
+}
+
+.small_card_details div h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.small_card_details p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .project_small_card {
+    width: 100%;
+    padding-bottom: .5rem;
+  }
+
+  .project_small_card_container {
+    height: 35vh;
+    flex-direction: column;
+  }
+  .small_card_details {
+    padding: 0.5rem;
+  }
+
+}

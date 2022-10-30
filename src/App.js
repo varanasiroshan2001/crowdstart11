@@ -1,64 +1,95 @@
-import { useEffect, useState } from "react";
-import { db } from "./utils/firebase";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import PrivateRoute from "./components/PrivateRoute";
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { PrivateRoute, AdminRoute } from "./utils/PrivateRoute";
 import "./App.css";
-import {
-  collection,
-  getDocs,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-} from "firebase/firestore";
-import store from "./Store";
-import { getProject } from "./actions/productAction";
+import { getProject } from "./actions/projectAction";
 import { getUser } from "./actions/userAction";
 import { useDispatch } from "react-redux";
 
 // Pages
 import Signup from "./pages/SignUp/Signup";
 import ForgotPassword from "./pages/ForgotPass/Forgot";
-import Dashboard from "./components/Dashboard.jsx";
-import Loading from "./components/Loading";
+import Loading from "./components/Loading/Loading";
 import Home from "./pages/Home/Home";
+import Profile from "./pages/Profile/Profile";
+import SubmitProject from "./pages/SubmitProject/SubmitProject";
+import ProjectDetails from "./pages/ProjectDetails/ProjectDetails";
+import NewRequest from "./pages/NewRequest/NewRequest";
+import Requests from "./pages/Requests/Requests";
 
 // Contexts
-import { AuthProvider } from "./contexts/authContext";
+import { useAuth } from "./contexts/authContext";
 
 function App() {
-  const [users, setUsers] = useState();
-  const usersCollectionRef = collection(db, "users");
   const dispatch = useDispatch();
+  const { currentUser } = useAuth();
 
-  useEffect(() => {
-    const getUsers = async () => {
-      const userSnapshot = await getDocs(usersCollectionRef);
-      const usersList = userSnapshot.docs.map((doc) => doc.data());
-      // console.log(usersList);
-    };
+  // console.log(currentUser);
 
-    getUsers();
-  }, []);
+  // useEffect(() => {
+  //   const getUsers = async () => {
+  //     const userSnapshot = await getDocs(usersCollectionRef);
+  //     const usersList = userSnapshot.docs.map((doc) => doc.data());
+  //     // console.log(usersList);
+  //   };
+
+  //   getUsers();
+  // }, []);
 
   useEffect(() => {
     dispatch(getProject());
-    dispatch(getUser());
+    if (currentUser) dispatch(getUser(currentUser));
   });
 
   return (
-    <AuthProvider>
-      <div className="App">
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/loading" element={<Loading />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
-    </AuthProvider>
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/loading" element={<Loading />} />
+          <Route path="/project/:id" element={<ProjectDetails />} />
+
+          {/* Private Routes */}
+          <Route
+            path="profile"
+            element={
+              <PrivateRoute>
+                <Profile />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="submit-project"
+            element={
+              <PrivateRoute>
+                <SubmitProject />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/project/:id/requests"
+            element={
+              <PrivateRoute>
+                <Requests />
+              </PrivateRoute>
+            }
+          />
+
+          {/* Admin Routes */}
+          <Route
+            path="project/:id/new-request"
+            element={
+              <PrivateRoute>
+                <NewRequest />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

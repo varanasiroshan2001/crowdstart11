@@ -1,0 +1,9 @@
+.main_project_container {
+  margin-top: 3rem;
+  padding-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 5rem;
+}

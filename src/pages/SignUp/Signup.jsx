@@ -1,30 +1,30 @@
 import React, { useState } from "react";
 import "./signup.css";
-import { PrimaryButton, SecondaryButton } from "../../components/Button";
+import { PrimaryButton, SecondaryButton } from "../../components/Button/Button";
 import { useAuth } from "../../contexts/authContext";
 import { db } from "../../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { getUser } from "../../actions/userAction";
+import { useDispatch } from "react-redux";
 import {
   doc,
-  getDoc,
-  setDoc,
   addDoc,
   collection,
   updateDoc,
 } from "firebase/firestore";
 
 const Signup = () => {
-  const [isSignUp, setIsSignUp] = useState(true);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { signup, login, currentUser } = useAuth();
+
+  const [isSignUp, setIsSignUp] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
-  const navigate = useNavigate();
-
-  const { signup, login } = useAuth();
 
   const resetInputs = () => {
     setName("");
@@ -46,16 +46,21 @@ const Signup = () => {
       setError("");
       await signup(email, password);
 
-      const userRes = await addDoc(collection(db, "users"), {
+      const userRef = await addDoc(collection(db, "users"), {
         name,
         email,
         id: "",
+        ethId: "",
+        imgUrl: "",
       });
-      const userRef = doc(db, "users", userRes.id);
 
-      await updateDoc(userRef, {
-        id: userRes.id,
+      const userUpdateRef = doc(db, "users", userRef.id);
+      await updateDoc(userUpdateRef, {
+        id: userRef.id,
       });
+
+      dispatch(getUser(currentUser));
+
       navigate("/");
     } catch (error) {
       console.log("Failed to create account", error);
@@ -70,6 +75,7 @@ const Signup = () => {
       setLoading(true);
       setError("");
       await login(email, password);
+      dispatch(getUser(currentUser));
       navigate("/");
     } catch (error) {
       console.log("Failed to create account", error);

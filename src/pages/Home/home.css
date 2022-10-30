@@ -145,3 +145,39 @@
     transform: translateY(100px);
   }
 } */
+
+@media (max-width: 768px) {
+  .home_container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .home_details p {
+    font-size: 1rem;
+  }
+
+  .home_details h1 {
+    font-size: 2rem;
+  }
+
+  .home_cards {
+    flex-direction: column;
+  }
+
+  .home_box {
+    width: 150px;
+  }
+
+  .home_images {
+    width: 100%;
+  }
+
+  .home_images img {
+    width: 25%;
+    margin-inline: auto;
+  }
+
+  .scroll_down {
+    display: none;
+  }
+}

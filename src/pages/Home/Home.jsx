@@ -1,7 +1,10 @@
 import React from "react";
-import { PrimaryButton } from "../../components/Button";
+// import { useAuth } from "../../contexts/authContext";
+import { useNavigate } from "react-router-dom";
+import { PrimaryButton } from "../../components/Button/Button";
+import Projects from "./Projects";
 import "./home.css";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import checkImg from "../../assets/vectors/check.svg";
 import etheriumImg from "../../assets/vectors/etherium.svg";
 import projectImg from "../../assets/vectors/project.svg";
@@ -10,6 +13,8 @@ import homeImg2 from "../../assets/images/home_card2.png";
 import homeImg3 from "../../assets/images/home_card3.png";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <Navbar />
@@ -28,7 +33,11 @@ const Home = () => {
                 color="pink"
                 label="Projects"
               />
-              <PrimaryButton color="blue" label="Submit project" />
+              <PrimaryButton
+                color="blue"
+                label="Submit project"
+                onClick={() => navigate("/submit-project")}
+              />
             </div>
             <div className="home_cards">
               <div className="home_card">
@@ -71,6 +80,7 @@ const Home = () => {
           <div className="scroll_down"></div>
         </div>
       </div>
+      <Projects />
     </div>
   );
 };
