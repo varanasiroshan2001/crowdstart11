@@ -101,6 +101,7 @@ label {
 .signup_inputs {
   text-align: left;
   width: 100%;
+  margin-bottom: 1rem;
 }
 
 .signup_inputs input {
@@ -169,4 +170,36 @@ label {
   margin-top: 1rem;
 }
 
+.mobile_button_container {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  display: none;
+}
 
+.mobile_button_container p {
+  color: var(--primary-pink);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .mobile_button_container {
+    display: flex;
+  }
+
+  .signup_main {
+    width: 100%;
+  }
+
+  .signup_top {
+    width: 100%;
+  }
+
+  .bottom_container {
+    display: none;
+  }
+
+  .signup_top.close {
+    margin-left: 0;
+  }
+}

@@ -21,7 +21,6 @@ const ProjectCard = ({ width, project }) => {
               <h2>{project?.projectName}</h2>
             </Link>
             <div className="project_description">
-              <div className="cover"></div>
               <p>{project?.projectDescription}</p>
             </div>
           </div>

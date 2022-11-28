@@ -10,6 +10,14 @@
   background-color: white;
 }
 
+.ham_container {
+  position: fixed;
+  right: 5%;
+  top: 3.5%;
+  z-index: 999;
+  display: none;
+}
+
 .nav_container {
   display: flex;
   align-items: center;
@@ -21,6 +29,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .nav_items h5 {
@@ -43,6 +52,68 @@
 
 .login_buttons img {
   cursor: pointer;
+}
+
+.ham_navbar {
+  width: 75%;
+  height: 100%;
+  padding-inline: 5%;
+  padding-block: 5rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  background-color: white;
+  z-index: 100;
+  transform: translateX(100%);
+  transition: all 300ms ease-in;
+}
+
+.ham_nav_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block: auto;
+}
+
+.ham_nav_items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ham_nav_items h5 {
+  font-weight: 400;
+  font-size: 1rem;
+  margin-inline: 0.5rem;
+  margin-block: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ham_navigations {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 3rem;
+}
+
+.ham_nav_items h5:hover {
+  color: var(--primary-pink);
+}
+
+.ham_login_buttons img {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ham_login_buttons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .ham_menu {
@@ -115,7 +186,19 @@
 }
 
 @media (max-width: 768px) {
+  .ham_container {
+    display: block;
+  }
+
   .navigations {
     display: none;
+  }
+
+  .login_buttons {
+    display: none;
+  }
+
+  .ham_navbar.open {
+    transform: translateX(0%);
   }
 }

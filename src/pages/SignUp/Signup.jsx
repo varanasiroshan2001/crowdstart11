@@ -6,12 +6,7 @@ import { db } from "../../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../../actions/userAction";
 import { useDispatch } from "react-redux";
-import {
-  doc,
-  addDoc,
-  collection,
-  updateDoc,
-} from "firebase/firestore";
+import { doc, addDoc, collection, updateDoc } from "firebase/firestore";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -91,7 +86,7 @@ const Signup = () => {
             <section>
               <div></div>
               <h2>
-                Welcom to <span className="logo_text">CryptoFunds</span>
+                Welcome to <span className="logo_text">CryptoFunds</span>
               </h2>
               <div className="signup_buttons">
                 <p>Already have an account</p>
@@ -175,6 +170,17 @@ const Signup = () => {
                   label="Sign Up"
                   onClick={(e) => handleSignUp(e)}
                 />
+                <div className="mobile_button_container">
+                  <p>Already have an account.</p>
+                  <SecondaryButton
+                    label="Log in"
+                    color="pink"
+                    onClick={() => {
+                      setIsSignUp(true);
+                      resetInputs();
+                    }}
+                  />
+                </div>
               </form>
             </div>
 
@@ -214,6 +220,19 @@ const Signup = () => {
                   label="Log in"
                   onClick={(e) => handleLogin(e)}
                 />
+                <div className="mobile_button_container">
+                  <p style={{ color: "var(--primary-blue)" }}>
+                    Don't have an account.
+                  </p>
+                  <SecondaryButton
+                    label="Sign Up"
+                    color="blue"
+                    onClick={() => {
+                      setIsSignUp(false);
+                      resetInputs();
+                    }}
+                  />
+                </div>
               </form>
             </div>
           </div>
