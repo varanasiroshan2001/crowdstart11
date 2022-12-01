@@ -24,7 +24,7 @@ const Navbar = () => {
       <div className="navbar">
         <div className="nav_container">
           <div className="logo_text" onClick={() => navigate("/")}>
-            <h2>CF</h2>
+            <h2>CS</h2>
           </div>
           <div className="nav_items">
             <div className="navigations">

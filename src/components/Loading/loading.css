@@ -6,4 +6,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgba(88, 88, 88, 0.19);
+  position: absolute;
+  inset: 0;
+}
+
+.loading_lottie {
+  width: 500px;
+  height: 500px;
 }

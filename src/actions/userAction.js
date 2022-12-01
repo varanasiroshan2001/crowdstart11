@@ -1,7 +1,7 @@
 import { db } from "../utils/firebase";
 import { collection, getDocs } from "firebase/firestore";
 // import { useAuth } from "../contexts/authContext";
-import { updateDoc, doc} from "firebase/firestore";
+import { updateDoc, doc } from "firebase/firestore";
 import web3 from "../ethereum/web3";
 
 import {

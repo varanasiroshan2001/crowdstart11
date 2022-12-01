@@ -6,7 +6,9 @@ import "./loading.css";
 const Loading = () => {
   return (
     <div className="loading">
-      <Lottie animationData={loadingAnimation} loop={true} />
+      <div className="loading_lottie" >
+        <Lottie animationData={loadingAnimation} loop={true} />
+      </div>
     </div>
   );
 };

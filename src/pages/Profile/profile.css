@@ -37,12 +37,14 @@
 
 .profile_image {
   position: relative;
+  overflow: hidden;
 }
 
 .empty_image img,
 .pic {
   /* aspect-ratio: 1; */
-  width: 80%;
+  height: 150px;
+  width: 150px;
   object-fit: contain;
   border-radius: 150px;
 }

@@ -40,7 +40,7 @@ export const projectReducer = (state = { pojects: [] }, action) => {
 };
 
 export const projectDetailsReducer = (
-  state = { pojectDetails: {} },
+  state = { projectDetails: {} },
   action
 ) => {
   switch (action.type) {

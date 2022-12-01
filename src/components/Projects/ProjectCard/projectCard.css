@@ -44,10 +44,12 @@
 .card_details p {
   /* white-space: nowrap; */
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgb(23, 23, 23);
   opacity: 0.8;
 }
 
@@ -55,6 +57,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 0.2rem;
 }
 
@@ -68,17 +71,17 @@
 }
 
 .eth_card img {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 .eth_card div h4 {
-  font-size: 1.1rem;
-  font-weight: normal;
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 
 .eth_card div p {
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   font-weight: 500;
 }
 

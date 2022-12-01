@@ -1,3 +1,25 @@
+.home_main_container {
+  position: relative;
+}
+
+.home_header {
+  position: relative;
+}
+
+.hero_title {
+  color: #3a3a3a;
+  mix-blend-mode: color-burn;
+}
+
+.hero_title__overlay {
+  mix-blend-mode: revert;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  opacity: 0.4;
+}
+
 .home_container {
   display: flex;
   align-items: center;

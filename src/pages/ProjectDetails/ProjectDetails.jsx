@@ -23,6 +23,7 @@ import { useAuth } from "../../contexts/authContext";
 import Modal from "react-modal";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import Loading from "../../components/Loading/Loading";
 
 const ProjectDetails = () => {
   const navigate = useNavigate();
@@ -30,7 +31,9 @@ const ProjectDetails = () => {
   const alert = useAlert();
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { projectDetails } = useSelector((state) => state.projectDetails);
+  const { projectDetails, loading } = useSelector(
+    (state) => state.projectDetails
+  );
   const { user } = useSelector((state) => state.user);
 
   const customStyles = {
@@ -73,11 +76,13 @@ const ProjectDetails = () => {
   return (
     <div>
       <Navbar />
+      {loading ? <Loading /> : ""}
       <div className="container">
         <div className="project_details_container">
           <Title
             title={projectDetails?.projectName}
             color="var(--primary-pink)"
+            style={{ padding: 0 }}
           />
           <p>{projectDetails?.projectDescription}</p>
           <div className="project_details">
@@ -147,35 +152,38 @@ const ProjectDetails = () => {
                   style={{ width: "200px" }}
                   onClick={() => setDonateModalOpen(true)}
                 />
+                {user?.userEthId === projectDetails?.creatorEthId ? (
+                  <PrimaryButton
+                    label="Create request"
+                    color="blue"
+                    style={{ width: "200px", marginLeft: "2rem" }}
+                    onClick={() => {
+                      alert.removeAll();
+                      if (!currentUser) {
+                        alert.show("You have to create an account to donate");
+                        return;
+                      } else if (
+                        user?.userEthId !== projectDetails?.creatorEthId
+                      ) {
+                        alert.show("Only the creator can make a new request ");
+                        return;
+                      }
+                      navigate(`new-request`);
+                    }}
+                  />
+                ) : (
+                  ""
+                )}
                 <PrimaryButton
-                  label="Create request"
-                  color="blue"
-                  style={{ width: "200px" }}
-                  onClick={() => {
-                    alert.removeAll();
-                    if (!currentUser) {
-                      alert.show("You have to create an account to donate");
-                      return;
-                    } else if (
-                      user?.userEthId !== projectDetails?.creatorEthId
-                    ) {
-                      alert.show("Only the creator can make a new request ");
-                      return;
-                    }
-                    navigate(`new-request`);
+                  label="All requests"
+                  color="pink"
+                  style={{
+                    width: "200px",
+                    marginLeft: "2rem",
                   }}
+                  onClick={() => navigate("requests")}
                 />
               </div>
-              <PrimaryButton
-                label="All requests"
-                color="pink"
-                style={{
-                  width: "200px",
-                  marginTop: "1rem",
-                  marginInline: "auto",
-                }}
-                onClick={() => navigate("requests")}
-              />
             </div>
           </div>
           <div className="like_buttons">

@@ -6,11 +6,11 @@ import sampleImg from "../../../assets/images/sample.png";
 import ethereumImg from "../../../assets/vectors/etherium.svg";
 import peopleImg from "../../../assets/vectors/team.svg";
 
-const ProjectCard = ({ width, project }) => {
+const ProjectCard = ({ style, project }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="project_card">
+    <div className="project_card" style={style}>
       <div className="project_card_container">
         <div className="project_img">
           <img src={project?.imageUrls[0]} alt="sample" />

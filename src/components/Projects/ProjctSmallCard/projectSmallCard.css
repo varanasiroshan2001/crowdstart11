@@ -45,12 +45,16 @@
 .small_card_details p {
   font-size: 0.9rem;
   opacity: 0.8;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
   .project_small_card {
     width: 100%;
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
   }
 
   .project_small_card_container {
@@ -60,5 +64,4 @@
   .small_card_details {
     padding: 0.5rem;
   }
-
 }
