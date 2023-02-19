@@ -3,7 +3,7 @@ const Web3 = require("web3");
 const compiledFactory = require("./build/CampaignFactory.json");
 
 const provider = new HDWalletProvider(
-  "forum focus joy acid reveal make credit sweet benefit either recipe leader",
+  process.env.REACT_APP_ETHEREUM_SENTENCE,
   "https://goerli.infura.io/v3/65bc3181abe44d62aa36ed4fdb857397"
 );
 const web3 = new Web3(provider);
